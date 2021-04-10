@@ -1,0 +1,18 @@
+<?php
+    header('Access-Control-Allow-Origin: *');
+    header("Access-Control-Allow-Headers: X-API-KEY, Origin,  Content-Type, Accept, Access-Control-Request-Method");
+    header("Access-Control-Allow-Methods: DELETE");
+
+    require_once "../models/Cliente.php";
+
+    if(isset($_GET['id'])){
+        if($resultado = Cliente::delete($_GET['id'])) {
+            echo json_encode(['delete' => TRUE, 'r' => $resultado]);
+        }//end if
+        else {
+            echo json_encode(['delete' => FALSE, 'r' => $resultado]);
+        }//end else
+    }//end if 
+    else {
+        echo json_encode(['delete' => FALSE]);
+    }//end else
