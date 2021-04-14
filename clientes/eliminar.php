@@ -7,10 +7,10 @@
 
     if(isset($_GET['id'])){
         if($resultado = Cliente::delete($_GET['id'])) {
-            echo json_encode(['delete' => TRUE, 'r' => $resultado]);
+            echo json_encode(['delete' => TRUE]);
         }//end if
         else {
-            echo json_encode(['delete' => FALSE, 'r' => $resultado]);
+            echo json_encode(['delete' => FALSE]);
         }//end else
     }//end if 
     else {
