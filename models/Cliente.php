@@ -72,7 +72,7 @@
             $db = new Connection();
             $query = "DELETE FROM clientes WHERE id=$id_cliente";
             $db->query($query);
-            if($db->affected_rows == 0) {
+            if($db->affected_rows >= 0) {
                 return TRUE;
             }//end if
             return FALSE;
